@@ -63,15 +63,15 @@ begin
    memo1.Clear;
    val(edit1.text,a,code);
    if(code=0) then begin
-   val(edit1.text,b,code);
+  val(edit2.text,b,code);
    if(code=0) then begin;
-   val(edit3.text,eps,code1);
+   val(edit3.text,eps,code);
    if(code=0) then begin
    Code:=0;
    repeat
       Code:=Code+1;
       x:=(a+b)/2;
-      if f(a)/f(x)<0 then b:=x
+      if f(a)*f(x)<0 then b:=x
       else a:=x;
 
       if ( Code>100) then begin
@@ -88,11 +88,12 @@ begin
     Chart1lineSeries1.Clear;
     while (i<b) do begin
     Chart1lineSeries1.addXY(i,f(i));
+    i:=i+0.01;
     end;
     if ( Code=100) then begin
     Str(x:3:3,Ta);
     Str(F(x):4:4,Tb);
-    memo1.lines.add('F(x)='+Tb);
+    memo1.lines.add('x='+Ta);
 
     end;
 
